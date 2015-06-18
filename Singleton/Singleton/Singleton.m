@@ -26,10 +26,14 @@ static NSMutableDictionary *classNameMapSharedInstanceDictionary;
     @synchronized(self) {
         NSString *className = NSStringFromClass(self);
         instance = classNameMapSharedInstanceDictionary[className];
+        
         if (instance == nil) {
             instance = [[super allocWithZone:NULL] initQuitely];
-            classNameMapSharedInstanceDictionary[className] = instance;
-            [instance initSharedInstance];
+            
+            if (instance) {
+                classNameMapSharedInstanceDictionary[className] = instance;
+                [instance initSharedInstance];
+            }
         }
     }
 
