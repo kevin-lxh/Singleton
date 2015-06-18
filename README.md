@@ -6,6 +6,7 @@ Simplify singleton implementation
 2. Override "initSharedInstance"
 3. So easy
 
+## codes
 ```
 // Foo.h
 
