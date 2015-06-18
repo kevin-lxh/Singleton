@@ -11,6 +11,7 @@ Simplify singleton implementation
 // Foo.h
 
 #import "Singleton.h"
+
 @interface Foo : Singleton
 @property (strong, nonatomic) NSString *title;
 @end
@@ -20,8 +21,8 @@ Simplify singleton implementation
 // Foo.m
 
 #import "Foo.h"
-@implementation Foo
 
+@implementation Foo
 - (void)initSharedInstance {
     _title = [self.class description];
 }
