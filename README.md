@@ -1,2 +1,2 @@
 # Singleton
-[Objective-C] Simplify singleton implementation
+Simplify singleton implementation
