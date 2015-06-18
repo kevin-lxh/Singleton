@@ -25,6 +25,7 @@ Simplify singleton implementation
 @implementation Foo
 - (void)sharedInstanceInitializer {
     _title = [self.class description];
+    _anyProperty = nil;
 }
 @end
 ```
