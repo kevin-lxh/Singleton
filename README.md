@@ -2,11 +2,8 @@
 Simplify singleton implementation
 
 # How to use
-1. Inherit from Singleton
-2. Override "sharedInstanceInitializer"
-3. So easy
 
-### codes
+#### 1. Inherit from Singleton
 ```
 // Foo.h
 
@@ -18,6 +15,7 @@ Simplify singleton implementation
 @end
 ```
 
+#### 2. Override "sharedInstanceInitializer"
 ```
 // Foo.m
 
@@ -31,6 +29,7 @@ Simplify singleton implementation
 @end
 ```
 
+#### 3. So easy
 ```
 // main.m
 
