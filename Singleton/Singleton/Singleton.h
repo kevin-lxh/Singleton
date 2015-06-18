@@ -11,6 +11,6 @@
 @interface Singleton : NSObject
 
 + (id)sharedInstance;
-- (void)initSharedInstance; // override point. initialize the sharedInstance for a class. called by Singleton automatically.
+- (void)sharedInstanceInitializer; // override point. initialize the sharedInstance for a class. called by Singleton automatically.
 
 @end

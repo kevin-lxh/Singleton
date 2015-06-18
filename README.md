@@ -3,7 +3,7 @@ Simplify singleton implementation
 
 # How to use
 1. Inherit from Singleton
-2. Override "initSharedInstance"
+2. Override "sharedInstanceInitializer"
 3. So easy
 
 ### codes
@@ -23,7 +23,7 @@ Simplify singleton implementation
 #import "Foo.h"
 
 @implementation Foo
-- (void)initSharedInstance {
+- (void)sharedInstanceInitializer {
     _title = [self.class description];
 }
 @end

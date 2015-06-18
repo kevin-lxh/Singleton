@@ -16,7 +16,7 @@
 
 @implementation Foo
 
-- (void)initSharedInstance {
+- (void)sharedInstanceInitializer {
     _title = [self.class description];
 }
 

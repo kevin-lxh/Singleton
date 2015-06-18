@@ -32,7 +32,7 @@ static NSMutableDictionary *classNameMapSharedInstanceDictionary;
             
             if (instance) {
                 classNameMapSharedInstanceDictionary[className] = instance;
-                [instance initSharedInstance];
+                [instance sharedInstanceInitializer];
             }
         }
     }
@@ -59,7 +59,7 @@ static NSMutableDictionary *classNameMapSharedInstanceDictionary;
 }
 
 #pragma mark - Override point
-- (void)initSharedInstance {
+- (void)sharedInstanceInitializer {
     //
 }
 
