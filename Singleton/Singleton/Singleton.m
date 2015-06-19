@@ -40,16 +40,16 @@ static NSMutableDictionary *classNameMapSharedInstanceDictionary;
     return instance;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)zone {
-    return [self sharedInstance];
-}
-
 - (id)init {
     return [self.class sharedInstance];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
     return self;
+}
+
++ (id)allocWithZone:(struct _NSZone *)zone {
+    return [self sharedInstance];
 }
 
 #pragma mark - Private
