@@ -4,7 +4,7 @@ Simplify singleton implementation
 # How to use
 
 #### 1. Inherit from Singleton
-```
+```objc
 // Foo.h
 
 #import "Singleton.h"
@@ -16,7 +16,7 @@ Simplify singleton implementation
 ```
 
 #### 2. Override "sharedInstanceInitializer"
-```
+```objc
 // Foo.m
 
 #import "Foo.h"
@@ -30,7 +30,7 @@ Simplify singleton implementation
 ```
 
 #### 3. So easy
-```
+```objc
 // main.m
 
 Foo *foo = [Foo sharedInstance];
