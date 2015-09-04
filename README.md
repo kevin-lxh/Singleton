@@ -3,7 +3,7 @@ Simplify singleton implementation
 
 # How to use
 
-## 1. Inherit from Singleton
+#### 1. Inherit from Singleton
 ```objc
 // Foo.h
 
