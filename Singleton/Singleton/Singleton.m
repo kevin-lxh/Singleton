@@ -8,7 +8,7 @@
 
 #import "Singleton.h"
 
-static NSMutableDictionary *classNameMapSharedInstanceDictionary;
+static NSMutableDictionary *classNameToSharedInstanceMapping;
 
 @interface Singleton () <NSCopying>
 
@@ -19,24 +19,21 @@ static NSMutableDictionary *classNameMapSharedInstanceDictionary;
 + (id)sharedInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        classNameMapSharedInstanceDictionary = [NSMutableDictionary dictionary];
+        classNameToSharedInstanceMapping = [NSMutableDictionary dictionary];
     });
     
     id instance = nil;
-    @synchronized(self) {
+    static NSString *anObj = @"anObj";
+    @synchronized(anObj) {
         NSString *className = NSStringFromClass(self);
-        instance = classNameMapSharedInstanceDictionary[className];
-        
+        instance = classNameToSharedInstanceMapping[className];
         if (instance == nil) {
-            instance = [[super allocWithZone:NULL] initQuitely];
-            
-            if (instance) {
-                classNameMapSharedInstanceDictionary[className] = instance;
-                [instance sharedInstanceInitializer];
-            }
+            instance = [[super allocWithZone:NULL] initPrivately];
+            classNameToSharedInstanceMapping[className] = instance;
+            [instance sharedInstanceInitializer];
         }
     }
-
+    
     return instance;
 }
 
@@ -48,12 +45,12 @@ static NSMutableDictionary *classNameMapSharedInstanceDictionary;
     return self;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)zone {
++ (id)allocWithZone:(NSZone *)zone {
     return [self sharedInstance];
 }
 
 #pragma mark - Private
-- (id)initQuitely {
+- (id)initPrivately {
     self = [super init];
     return self;
 }
