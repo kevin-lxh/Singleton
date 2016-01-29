@@ -17,14 +17,15 @@ static NSMutableDictionary *classNameToSharedInstanceMapping;
 @implementation Singleton
 
 + (id)sharedInstance {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        classNameToSharedInstanceMapping = [NSMutableDictionary dictionary];
-    });
+    static NSString *anObj = @"anObj";
     
     id instance = nil;
-    static NSString *anObj = @"anObj";
+    
     @synchronized(anObj) {
+        if (classNameToSharedInstanceMapping == nil) {
+            classNameToSharedInstanceMapping = [NSMutableDictionary dictionary];
+        }
+    
         NSString *className = NSStringFromClass(self);
         instance = classNameToSharedInstanceMapping[className];
         if (instance == nil) {
